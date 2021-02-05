@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Main</class>
+ <widget class="QMainWindow" name="Main">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>888</width>
+    <height>721</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Emotion classifier</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon2.png</normaloff>icon2.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(61, 61, 61);</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextOnly</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>10</y>
+      <width>801</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="labelpath">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>35</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(0, 0, 0);
+border-radius:40px;
+
+font: 12pt &quot;Calibri&quot;;
+color: rgb(0, 0, 0);
+background-color: rgb(186, 186, 186);
+
+</string>
+       </property>
+       <property name="lineWidth">
+        <number>1</number>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <property name="indent">
+        <number>25</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonselect">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>10</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+	font: 14pt &quot;Calibri&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(170, 85, 0);
+	background-color: rgb(202, 101, 0);
+	border-radius:30px;
+}
+
+QPushButton:hover{
+	color: rgb(61, 61, 61);
+	background-color: rgb(238, 238, 238);
+	background-color: rgb(0, 175, 0);
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Select</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>400</y>
+      <width>238</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QCheckBox" name="box1">
+       <property name="styleSheet">
+        <string notr="true">font: 14pt &quot;Calibri&quot;;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>SVM</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="box2">
+       <property name="styleSheet">
+        <string notr="true">font: 14pt &quot;Calibri&quot;;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string> Random Forest</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="box3">
+       <property name="styleSheet">
+        <string notr="true">font: 14pt &quot;Calibri&quot;;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string> Logistic Regression</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="box4">
+       <property name="styleSheet">
+        <string notr="true">font: 14pt &quot;Calibri&quot;;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string> xgBoost</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="box5">
+       <property name="styleSheet">
+        <string notr="true">font: 14pt &quot;Calibri&quot;;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string> Gradient Boosting Machine</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="buttoncompare">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>620</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>10</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 18pt &quot;Calibri&quot;;
+	color: rgb(0, 0, 0);
+	font: italic 18pt &quot;Times New Roman&quot;;
+
+	background-color: rgb(68, 204, 204);
+
+	border-radius:30px;
+}
+
+QPushButton:hover{
+	color: rgb(61, 61, 61);
+	background-color: rgb(255, 170, 127);
+
+}
+</string>
+    </property>
+    <property name="text">
+     <string>- Compare -</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonanalyze">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>620</y>
+      <width>311</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>10</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 18pt &quot;Calibri&quot;;
+	color: rgb(0, 0, 0);
+	font: italic 18pt &quot;Times New Roman&quot;;
+
+	background-color: rgb(68, 204, 204);
+
+	border-radius:30px;
+}
+
+QPushButton:hover{
+	color: rgb(61, 61, 61);
+	background-color: rgb(255, 170, 127);
+
+}
+</string>
+    </property>
+    <property name="text">
+     <string>- Analyze -</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="photo1">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>60</y>
+      <width>241</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>image2.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="photo2">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>60</y>
+      <width>241</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>image2.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="title1">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>350</y>
+      <width>241</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Original Image</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="indent">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="title2">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>350</y>
+      <width>241</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: italic 14pt &quot;Times New Roman&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Dispaly</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="indent">
+     <number>3</number>
+    </property>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>400</y>
+      <width>521</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QComboBox" name="outputselector">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>50</horstretch>
+         <verstretch>10</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(0, 0, 0);
+border-radius:40px;
+
+font: 12pt &quot;Calibri&quot;;
+color: rgb(0, 0, 0);
+background-color: rgb(186, 186, 186);
+
+</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Select an option to view </string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Face Detection</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ROI (Region of Interest)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Flipped Image</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ratated Image</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Eroded Image</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Subtracted Image</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="buttonview">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>20</horstretch>
+         <verstretch>12</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+	font: 14pt &quot;Calibri&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(170, 85, 0);
+	background-color: rgb(202, 101, 0);
+	background-color: rgb(255, 85, 0);
+	border-radius:30px;
+}
+
+QPushButton:hover{
+	color: rgb(61, 61, 61);
+	background-color: rgb(238, 238, 238);
+	background-color: rgb(0, 175, 0);
+}
+</string>
+       </property>
+       <property name="text">
+        <string>View</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="sentiment">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>40</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(75, 75, 75);
+font: 16pt &quot;Calibri&quot;;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Image is classified as &quot;happy&quot; with 80 % condifidence</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QPushButton" name="buttonreset">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>18</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+	font: 14pt &quot;Calibri&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(170, 85, 0);
+	background-color: rgb(202, 101, 0);
+	border-radius:30px;
+}
+
+QPushButton:hover{
+	color: rgb(61, 61, 61);
+	background-color: rgb(238, 238, 238);
+	background-color: rgb(0, 175, 0);
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Reset</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>888</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="acceptDrops">
+    <bool>true</bool>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(70, 70, 70);
+color: rgb(255, 255, 255);
+selection-color: rgb(255, 255, 0);
+alternate-background-color: rgb(170, 255, 0);</string>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="bar_file">
+    <property name="geometry">
+     <rect>
+      <x>269</x>
+      <y>129</y>
+      <width>135</width>
+      <height>116</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QMenu:hover{
+color: rgb(0, 0, 0);
+}
+</string>
+    </property>
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>File</string>
+    </property>
+    <property name="separatorsCollapsible">
+     <bool>false</bool>
+    </property>
+    <addaction name="bar_newfile"/>
+    <addaction name="bar_reset"/>
+    <addaction name="bar_exit"/>
+   </widget>
+   <widget class="QMenu" name="bar_shortcut">
+    <property name="title">
+     <string>Shortcuts</string>
+    </property>
+   </widget>
+   <addaction name="bar_file"/>
+   <addaction name="bar_shortcut"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionasd_2">
+   <property name="text">
+    <string>asd</string>
+   </property>
+  </action>
+  <action name="bar_reset">
+   <property name="text">
+    <string>Reset</string>
+   </property>
+   <property name="toolTip">
+    <string>Reset window</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="bar_exit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string extracomment="Exit">Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="bar_newfile">
+   <property name="text">
+    <string>New File</string>
+   </property>
+   <property name="toolTip">
+    <string>To input an image file</string>
+   </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WidgetWithChildrenShortcut</enum>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
