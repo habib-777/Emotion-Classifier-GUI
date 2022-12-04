@@ -1,2 +1,2 @@
-# Emotion-Classifier-GUI
-An emotion classifier project that works on the four emotions (Happy, Sad, Angry and Surprise).  Python and PyQt5 was used in this project.
+# Emotion-Classifier
+Emotion classifier, classify the four types(Happy, Sad, Angry and Surprise) of human sentiment by analysing human face from images. Mainly <b>PyQt5</b> farmeork and <b>Qt Designer</b> are used in this project.
